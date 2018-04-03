@@ -2,28 +2,71 @@
 #include <stdlib.h>
 #include <conio.h>
 
-int validarEntero(int numero, int minimo, int maximo, char mensajeReingreso[])
+int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIngreso, float numero1, float numero2)
+{
+    int retorno;
+
+    system("cls");
+    if(primerNumeroYaSeIngreso == 'S')
+    {
+        if(segundoNumeroYaSeIngreso == 'S')
+        {
+            printf("1- Ingresar 1er operando (A=%f)\n", numero1);
+            printf("2- Ingresar 2do operando (B=%f)\n", numero2);
+            printf("3- Calcular la suma (A+B)\n");
+            printf("4- Calcular la resta (A-B)\n");
+            printf("5- Calcular la division (A/B)\n");
+            printf("6- Calcular la multiplicacion (A*B)\n");
+            printf("7- Calcular el factorial (A!)\n");
+            printf("8- Calcular todas las operaciones\n");
+            printf("9- Salir\n");
+            printf("Elegir una de las opciones: ");
+            scanf("%d",&retorno);
+        }
+        else
+        {
+            printf("1- Ingresar 1er operando (A=%f)\n", numero1);
+            printf("2- Ingresar 2do operando (B=%f)\n", numero2);
+            printf("7- Calcular el factorial (A!)\n");
+            printf("9- Salir\n");
+            printf("Elegir una de las opciones: ");
+            scanf("%d",&retorno);
+        }
+    }
+    else
+    {
+        printf("1- Ingresar 1er operando (A=%f)\n", numero1);
+        printf("2- Ingresar 2do operando (B=%f)\n", numero2);
+        printf("9- Salir\n");
+        printf("Elegir una de las opciones: ");
+        scanf("%d",&retorno);
+    }
+
+    return retorno;
+};
+
+int validarNumero(float numero, float minimo, float maximo, char mensajeReingreso[])
 {
     while(numero < minimo || numero > maximo)
     {
         fflush(stdin);
-        printf("%s (entre %d y %d): ", mensajeReingreso, minimo, maximo);
-        scanf("%d", &numero);
+        printf("%s (entre %f y %f): ", mensajeReingreso, minimo, maximo);
+        scanf("%f", &numero);
     }
 
     return numero;
 };
 
-int pedirEntero(int minimo, int maximo, char mensajeIngreso[], char mensajeReingreso[])
+float pedirNumero(float minimo, float maximo, char mensajeIngreso[], char mensajeReingreso[])
 {
-    int numero;
+    float numero;
 
     system("cls");
     fflush(stdin);
     printf("%s: ", mensajeIngreso);
-    scanf("%d", &numero);
+    scanf("%f", &numero);
 
-    numero = validarEntero(numero, minimo, maximo, mensajeReingreso);
+    numero = validarNumero(numero, minimo, maximo, mensajeReingreso);
 
     return numero;
 };
@@ -64,9 +107,9 @@ float dividirEnteros(int numero1, int numero2)
     return resultado;
 };
 
-long long calcularFactorial(int numero)
+double calcularFactorial(int numero)
 {
-    long long resultado = numero;
+    double resultado;
     int multiplicando;
 
     if(numero == 0)
@@ -75,6 +118,7 @@ long long calcularFactorial(int numero)
     }
     else
     {
+        resultado = numero;
         for(multiplicando = numero - 1 ; multiplicando >= 1 ; multiplicando--)
         {
             resultado *= multiplicando;

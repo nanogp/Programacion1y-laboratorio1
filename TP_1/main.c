@@ -6,57 +6,48 @@ int main()
 {
     char seguir='s';
     int opcion=0;
-    int numeroEntero1;
-    int numeroEntero2;
-    long long resultado;
-    int decimalesEntero = 0;
+    float numero1;
+    float numero2;
+    float resultado;
+    double resultadoDouble;
     int decimalesFlotante = 2;
-    bool ambosNumerosIngresados;
+    int decimalesDouble = 0;
+    char primerNumeroYaSeIngreso = 'N';
+    char segundoNumeroYaSeIngreso = 'N';
 
     while(seguir=='s')
     {
 
-        system("cls");
-        printf("1- Ingresar 1er operando (A=%d)\n", numeroEntero1);
-        printf("2- Ingresar 2do operando (B=%d)\n", numeroEntero2);
-        printf("3- Calcular la suma (A+B)\n");
-        printf("4- Calcular la resta (A-B)\n");
-        printf("5- Calcular la division (A/B)\n");
-        printf("6- Calcular la multiplicacion (A*B)\n");
-        printf("7- Calcular el factorial (A!)\n");
-        printf("8- Calcular todas las operaciones\n");
-        printf("9- Salir\n");
-        printf("Elegir una de las opciones: ");
-        scanf("%d",&opcion);
+        opcion = mostrarMenuDeOpciones(primerNumeroYaSeIngreso, segundoNumeroYaSeIngreso, numero1, numero2);
 
         switch(opcion)
         {
             case 1:
-                numeroEntero1 = pedirEntero(1, 10, "Ingrese un numero entero", "Reingrese un numero entero.");
+                numero1 = pedirNumero(1, 10, "Ingrese un numero", "Reingrese un numero.");
                 break;
             case 2:
-                numeroEntero2 = pedirEntero(1, 10, "Ingrese un numero entero", "Reingrese un numero entero.");
+                numero2 = pedirNumero(1, 10, "Ingrese un numero", "Reingrese un numero.");
                 break;
             case 3:
-                resultado = sumarEnteros(numeroEntero1, numeroEntero2);
-                mostrarResultado("suma", numeroEntero1, numeroEntero2, resultado, decimalesEntero);
+                resultado = sumarFlotantes(numero1, numero2);
+                mostrarResultado("suma", numero1, numero2, resultado, decimalesFlotante);
                 break;
             case 4:
-                resultado = restarEnteros(numeroEntero1, numeroEntero2);
-                mostrarResultado("resta", numeroEntero1, numeroEntero2, resultado, decimalesEntero);
+                resultado = restarFlotantes(numero1, numero2);
+                mostrarResultado("resta", numero1, numero2, resultado, decimalesFlotante);
                 break;
             case 5:
-                resultado = dividirEnteros(numeroEntero1, numeroEntero2);
-                mostrarResultado("division", numeroEntero1, numeroEntero2, resultado, decimalesFlotante);
+                resultado = dividirFlotantes(numero1, numero2);
+                mostrarResultado("division", numero1, numero2, resultado, decimalesFlotante);
                 break;
             case 6:
-                resultado = multiplicarEnteros(numeroEntero1, numeroEntero2);
-                mostrarResultado("multiplicacion", numeroEntero1, numeroEntero2, resultado, decimalesEntero);
+                resultado = multiplicarFlotantes(numero1, numero2);
+                mostrarResultado("multiplicacion", numero1, numero2, resultado, decimalesFlotante);
                 break;
             case 7:
-                resultado = calcularFactorial(numeroEntero1);
+                resultadoDouble = calcularFactorialEntero(numero1);
                 system("cls");
-                printf("\nEl resultado de %d! es: %.0ll\n", numeroEntero1, resultado);
+                printf("\nEl resultado de %.0f! es: %.0ll\n", numero1, resultadoDouble);
                 system("pause");
                 break;
             case 8:
