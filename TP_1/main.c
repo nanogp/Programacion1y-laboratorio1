@@ -6,18 +6,19 @@ int main()
 {
     char seguir='s';
     int opcion=0;
-    int numeroEntero1 = 0;
-    int numeroEntero2 = 0;
-    float resultado;
+    int numeroEntero1;
+    int numeroEntero2;
+    long long resultado;
     int decimalesEntero = 0;
     int decimalesFlotante = 2;
+    bool ambosNumerosIngresados;
 
     while(seguir=='s')
     {
 
         system("cls");
-        printf("1- Ingresar 1er operando (A=x)\n");
-        printf("2- Ingresar 2do operando (B=y)\n");
+        printf("1- Ingresar 1er operando (A=%d)\n", numeroEntero1);
+        printf("2- Ingresar 2do operando (B=%d)\n", numeroEntero2);
         printf("3- Calcular la suma (A+B)\n");
         printf("4- Calcular la resta (A-B)\n");
         printf("5- Calcular la division (A/B)\n");
@@ -53,6 +54,10 @@ int main()
                 mostrarResultado("multiplicacion", numeroEntero1, numeroEntero2, resultado, decimalesEntero);
                 break;
             case 7:
+                resultado = calcularFactorial(numeroEntero1);
+                system("cls");
+                printf("\nEl resultado de %d! es: %.0ll\n", numeroEntero1, resultado);
+                system("pause");
                 break;
             case 8:
                 break;

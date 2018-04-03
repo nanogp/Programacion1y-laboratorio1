@@ -11,3 +11,15 @@
 
 1522524896 c:\users\admin\desktop\projects\tp_1\funciones.h
 
+1522792566 source:c:\test\mponti\tp_1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1522792868 source:c:\test\mponti\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1522787610 c:\test\mponti\tp_1\funciones.h
+
