@@ -4,18 +4,19 @@
 
 int main()
 {
-    char seguir='s';
+    char seguir='S';
     int opcion=0;
     float numero1;
     float numero2;
     float resultado;
     double resultadoDouble;
-    int decimalesFlotante = 2;
-    int decimalesDouble = 0;
+    float limiteInferiorRango = -127;
+    float limiteSuperiorRango = 128;
+    int decimalesFloat = 4;
     char primerNumeroYaSeIngreso = 'N';
     char segundoNumeroYaSeIngreso = 'N';
 
-    while(seguir=='s')
+    while(seguir=='S')
     {
 
         opcion = mostrarMenuDeOpciones(primerNumeroYaSeIngreso, segundoNumeroYaSeIngreso, numero1, numero2);
@@ -23,39 +24,39 @@ int main()
         switch(opcion)
         {
             case 1:
-                numero1 = pedirNumero(1, 10, "Ingrese un numero", "Reingrese un numero.");
+                numero1 = pedirFloat(limiteInferiorRango, limiteSuperiorRango, "Ingrese un numero", "Reingrese un numero.");
                 break;
             case 2:
-                numero2 = pedirNumero(1, 10, "Ingrese un numero", "Reingrese un numero.");
+                numero2 = pedirFloat(limiteInferiorRango, limiteSuperiorRango, "Ingrese un numero", "Reingrese un numero.");
                 break;
             case 3:
-                resultado = sumarFlotantes(numero1, numero2);
-                mostrarResultado("suma", numero1, numero2, resultado, decimalesFlotante);
+                resultado = sumarFloat(numero1, numero2);
+                mostrarResultado("suma", numero1, numero2, resultado, decimalesFloat);
                 break;
             case 4:
-                resultado = restarFlotantes(numero1, numero2);
-                mostrarResultado("resta", numero1, numero2, resultado, decimalesFlotante);
+                resultado = restarFloat(numero1, numero2);
+                mostrarResultado("resta", numero1, numero2, resultado, decimalesFloat);
                 break;
             case 5:
-                resultado = dividirFlotantes(numero1, numero2);
-                mostrarResultado("division", numero1, numero2, resultado, decimalesFlotante);
+                resultado = dividirFloat(numero1, numero2);
+                mostrarResultado("division", numero1, numero2, resultado, decimalesFloat);
                 break;
             case 6:
-                resultado = multiplicarFlotantes(numero1, numero2);
-                mostrarResultado("multiplicacion", numero1, numero2, resultado, decimalesFlotante);
+                resultado = multiplicarFloat(numero1, numero2);
+                mostrarResultado("multiplicacion", numero1, numero2, resultado, decimalesFloat);
                 break;
             case 7:
-                resultadoDouble = calcularFactorialEntero(numero1);
+                resultadoDouble = calcularFactorialInt(numero1);
                 system("cls");
-                printf("\nEl resultado de %.0f! es: %.0ll\n", numero1, resultadoDouble);
+                printf("\nEl resultado de %.0f! es: %.0lf\n", numero1, resultadoDouble);
                 system("pause");
                 break;
             case 8:
                 break;
             case 9:
-                seguir = 'n';
+                seguir = 'N';
                 break;
-        }
-    };
+        }//switch
+    }//while
     return 0;
 }

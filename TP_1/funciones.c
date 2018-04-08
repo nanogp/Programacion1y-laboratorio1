@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <conio.h>
 
+
 int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIngreso, float numero1, float numero2)
 {
     int retorno;
@@ -16,7 +17,7 @@ int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIn
             printf("3- Calcular la suma (A+B)\n");
             printf("4- Calcular la resta (A-B)\n");
             printf("5- Calcular la division (A/B)\n");
-            printf("6- Calcular la multiplicacion (A*B)\n");
+            printf("6- Calcular la multiplicaci¢n (A*B)\n");
             printf("7- Calcular el factorial (A!)\n");
             printf("8- Calcular todas las operaciones\n");
             printf("9- Salir\n");
@@ -28,6 +29,7 @@ int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIn
             printf("1- Ingresar 1er operando (A=%f)\n", numero1);
             printf("2- Ingresar 2do operando (B=%f)\n", numero2);
             printf("7- Calcular el factorial (A!)\n");
+            printf("8- Calcular todas las operaciones\n");
             printf("9- Salir\n");
             printf("Elegir una de las opciones: ");
             scanf("%d",&retorno);
@@ -35,8 +37,8 @@ int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIn
     }
     else
     {
-        printf("1- Ingresar 1er operando (A=%f)\n", numero1);
-        printf("2- Ingresar 2do operando (B=%f)\n", numero2);
+        printf("1- Ingresar 1er operando (A=)\n");
+        printf("2- Ingresar 2do operando (B=)\n");
         printf("9- Salir\n");
         printf("Elegir una de las opciones: ");
         scanf("%d",&retorno);
@@ -45,7 +47,101 @@ int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIn
     return retorno;
 };
 
-int validarNumero(float numero, float minimo, float maximo, char mensajeReingreso[])
+
+int chequearSiTieneDecimalesFloat(float numero)
+{
+    int retorno = 0;
+    int parteEntera;
+
+    parteEntera = (int)numero;
+
+    if((float)parteEntera != numero)
+    {
+        retorno = 1;
+    }
+
+    return retorno;
+}
+
+
+void mostrarResultado(char nombreOperacion[], float numero1, float numero2, float resultado, int decimales)
+{
+    int opcion;
+
+    opcion = chequearSiTieneDecimalesFloat(numero1);
+    opcion = opcion + (chequearSiTieneDecimalesFloat(numero2) * 10);
+    opcion = opcion + (chequearSiTieneDecimalesFloat(resultado) * 100);
+
+    system("cls");
+
+    //CODIFICO TODAS LAS OPCIONES EXPLICITAS PARA QUE SEA MAS FACIL LEER TODAS LAS COMBINACIONES
+    switch(opcion)
+    {
+        case 000:
+            printf("\nEl resultado de la %s entre %.0f y %.0f es: %.0f\n", nombreOperacion, numero1, numero2, resultado);
+            break;
+        case 001:
+            printf("\nEl resultado de la %s entre %.0f y %.0f es: %.*f\n", nombreOperacion, numero1, numero2, decimales, resultado);
+            break;
+        case 010:
+            printf("\nEl resultado de la %s entre %.0f y %.*f es: %.0f\n", nombreOperacion, numero1, decimales, numero2, resultado);
+            break;
+        case 011:
+            printf("\nEl resultado de la %s entre %.0f y %.*f es: %.*f\n", nombreOperacion, numero1, decimales, numero2, decimales, resultado);
+            break;
+        case 100:
+            printf("\nEl resultado de la %s entre %.*f y %.0f es: %.0f\n", nombreOperacion, decimales, numero1, numero2, resultado);
+            break;
+        case 101:
+            printf("\nEl resultado de la %s entre %.*f y %.0f es: %.*f\n", nombreOperacion, decimales, numero1, numero2, decimales, resultado);
+            break;
+        case 110:
+            printf("\nEl resultado de la %s entre %.*f y %.*f es: %.0f\n", nombreOperacion, decimales, numero1, decimales, numero2, resultado);
+            break;
+        case 111:
+            printf("\nEl resultado de la %s entre %.*f y %.*f es: %.*f\n", nombreOperacion, decimales, numero1, decimales, numero2, decimales, resultado);
+            break;
+    }
+
+/*
+    if(numero1TieneDecimales == 0 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 0)
+    {
+        printf("\nEl resultado de la %s entre %.0f y %.0f es: %.0f\n", nombreOperacion, numero1, numero2, resultado);
+    }
+    else if(numero1TieneDecimales == 0 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 1)
+    {
+        printf("\nEl resultado de la %s entre %.0f y %.0f es: %.*f\n", nombreOperacion, numero1, numero2, decimales, resultado);
+    }
+    else if(numero1TieneDecimales == 0 && numero2TieneDecimales == 1 && resultadoTieneDecimales == 0)
+    {
+        printf("\nEl resultado de la %s entre %.0f y %.*f es: %.0f\n", nombreOperacion, numero1, decimales, numero2, resultado);
+    }
+    else if(numero1TieneDecimales == 0 && numero2TieneDecimales == 1 && resultadoTieneDecimales == 1)
+    {
+        printf("\nEl resultado de la %s entre %.0f y %.*f es: %.*f\n", nombreOperacion, numero1, decimales, numero2, decimales, resultado);
+    }
+    else if(numero1TieneDecimales == 1 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 0)
+    {
+        printf("\nEl resultado de la %s entre %.*f y %.0f es: %.0f\n", nombreOperacion, decimales, numero1, numero2, resultado);
+    }
+    else if(numeopcion[0]ro1TieneDecimales == 1 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 1)
+    {
+        printf("\nEl resultado de la %s entre %.*f y %.0f es: %.*f\n", nombreOperacion, decimales, numero1, numero2, decimales, resultado);
+    }
+    else if(numero1TieneDecimales == 1 && numero2TieneDecimales == 1 && resultadoTieneDecimales == 0)
+    {
+        printf("\nEl resultado de la %s entre %.*f y %.*f es: %.0f\n", nombreOperacion, decimales, numero1, decimales, numero2, resultado);
+    }
+    else if(numero1TieneDecimales == 1 && numero2TieneDecimales == 1 && resultadoTieneDecimales == 1)
+    {
+        printf("\nEl resultado de la %s entre %.*f y %.*f es: %.*f\n", nombreOperacion, decimales, numero1, decimales, numero2, decimales, resultado);
+    }
+*/
+    system("pause");
+};
+
+
+float validarFloat(float numero, float minimo, float maximo, char mensajeReingreso[])
 {
     while(numero < minimo || numero > maximo)
     {
@@ -57,7 +153,8 @@ int validarNumero(float numero, float minimo, float maximo, char mensajeReingres
     return numero;
 };
 
-float pedirNumero(float minimo, float maximo, char mensajeIngreso[], char mensajeReingreso[])
+
+float pedirFloat(float minimo, float maximo, char mensajeIngreso[], char mensajeReingreso[])
 {
     float numero;
 
@@ -66,48 +163,49 @@ float pedirNumero(float minimo, float maximo, char mensajeIngreso[], char mensaj
     printf("%s: ", mensajeIngreso);
     scanf("%f", &numero);
 
-    numero = validarNumero(numero, minimo, maximo, mensajeReingreso);
+    numero = validarFloat(numero, minimo, maximo, mensajeReingreso);
 
     return numero;
 };
 
-int sumarEnteros(int numero1, int numero2)
+float sumarFloat(float numero1, float numero2)
 {
-    int resultado;
+    float resultado;
 
     resultado = numero1 + numero2;
 
     return resultado;
 };
 
-int restarEnteros(int numero1, int numero2)
+float restarFloat(float numero1, float numero2)
 {
-    int resultado;
+    float resultado;
 
     resultado = numero1 - numero2;
 
     return resultado;
 };
 
-int multiplicarEnteros(int numero1, int numero2)
+float multiplicarFloat(float numero1, float numero2)
 {
-    int resultado;
+    float resultado;
 
     resultado = numero1 * numero2;
 
     return resultado;
 };
 
-float dividirEnteros(int numero1, int numero2)
+float dividirFloat(float numero1, float numero2)
 {
     float resultado;
 
-    resultado = (float)numero1 / numero2;
+    resultado = numero1 / numero2;
 
     return resultado;
 };
 
-double calcularFactorial(int numero)
+
+double calcularFactorialInt(int numero)
 {
     double resultado;
     int multiplicando;
@@ -119,18 +217,28 @@ double calcularFactorial(int numero)
     else
     {
         resultado = numero;
-        for(multiplicando = numero - 1 ; multiplicando >= 1 ; multiplicando--)
+        for(multiplicando = numero - 1 ; multiplicando > 0 ; multiplicando--)
         {
             resultado *= multiplicando;
         }
-    };
+    }
 
     return resultado;
 };
 
-void mostrarResultado(char nombreOperacion[], int numero1, int numero2, float resultado, int decimales)
+
+double calcularFactorialFloatSinDecimales(float numero)
 {
-    system("cls");
-    printf("\nEl resultado de la %s entre %d y %d es: %.*f\n", nombreOperacion, numero1, numero2, decimales, resultado);
-    system("pause");
-};
+    double resultado;
+
+    if(chequearSiTieneDecimalesFloat(numero) == 0)
+    {
+        resultado = calcularFactorialFloatSinDecimales(numero);
+    }
+    else
+    {
+        printf("Solo se calcular  el factorial de n£meros enteros (sin decimales)");
+    }
+
+    return resultado;
+}
