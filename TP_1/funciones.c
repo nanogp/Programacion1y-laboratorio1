@@ -37,8 +37,8 @@ int mostrarMenuDeOpciones(char primerNumeroYaSeIngreso, char segundoNumeroYaSeIn
     }
     else
     {
-        printf("1- Ingresar 1er operando (A=)\n");
-        printf("2- Ingresar 2do operando (B=)\n");
+        printf("1- Ingresar 1er operando (A)\n");
+        printf("2- Ingresar 2do operando (B)\n");
         printf("9- Salir\n");
         printf("Elegir una de las opciones: ");
         scanf("%d",&retorno);
@@ -59,6 +59,9 @@ int chequearSiTieneDecimalesFloat(float numero)
     {
         retorno = 1;
     }
+printf("parte entera %d", parteEntera);
+printf("parte entera en float %f", (float)parteEntera);
+printf("numero en float %f", numero);
 
     return retorno;
 }
@@ -66,13 +69,20 @@ int chequearSiTieneDecimalesFloat(float numero)
 
 void mostrarResultado(char nombreOperacion[], float numero1, float numero2, float resultado, int decimales)
 {
-    int opcion;
+    //int opcion;
+    int numero1TieneDecimales;
+    int numero2TieneDecimales;
+    int resultadoTieneDecimales;
 
+    numero1TieneDecimales = chequearSiTieneDecimalesFloat(numero1);
+    numero2TieneDecimales = chequearSiTieneDecimalesFloat(numero2);
+    resultadoTieneDecimales = chequearSiTieneDecimalesFloat(resultado);
+
+    system("cls");
+/*
     opcion = chequearSiTieneDecimalesFloat(numero1);
     opcion = opcion + (chequearSiTieneDecimalesFloat(numero2) * 10);
     opcion = opcion + (chequearSiTieneDecimalesFloat(resultado) * 100);
-
-    system("cls");
 
     //CODIFICO TODAS LAS OPCIONES EXPLICITAS PARA QUE SEA MAS FACIL LEER TODAS LAS COMBINACIONES
     switch(opcion)
@@ -102,8 +112,8 @@ void mostrarResultado(char nombreOperacion[], float numero1, float numero2, floa
             printf("\nEl resultado de la %s entre %.*f y %.*f es: %.*f\n", nombreOperacion, decimales, numero1, decimales, numero2, decimales, resultado);
             break;
     }
+*/
 
-/*
     if(numero1TieneDecimales == 0 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 0)
     {
         printf("\nEl resultado de la %s entre %.0f y %.0f es: %.0f\n", nombreOperacion, numero1, numero2, resultado);
@@ -124,7 +134,7 @@ void mostrarResultado(char nombreOperacion[], float numero1, float numero2, floa
     {
         printf("\nEl resultado de la %s entre %.*f y %.0f es: %.0f\n", nombreOperacion, decimales, numero1, numero2, resultado);
     }
-    else if(numeopcion[0]ro1TieneDecimales == 1 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 1)
+    else if(numero1TieneDecimales == 1 && numero2TieneDecimales == 0 && resultadoTieneDecimales == 1)
     {
         printf("\nEl resultado de la %s entre %.*f y %.0f es: %.*f\n", nombreOperacion, decimales, numero1, numero2, decimales, resultado);
     }
@@ -136,7 +146,7 @@ void mostrarResultado(char nombreOperacion[], float numero1, float numero2, floa
     {
         printf("\nEl resultado de la %s entre %.*f y %.*f es: %.*f\n", nombreOperacion, decimales, numero1, decimales, numero2, decimales, resultado);
     }
-*/
+
     system("pause");
 };
 

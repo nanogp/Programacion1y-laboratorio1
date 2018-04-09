@@ -25,9 +25,11 @@ int main()
         {
             case 1:
                 numero1 = pedirFloat(limiteInferiorRango, limiteSuperiorRango, "Ingrese un numero", "Reingrese un numero.");
+                primerNumeroYaSeIngreso = 'S';
                 break;
             case 2:
                 numero2 = pedirFloat(limiteInferiorRango, limiteSuperiorRango, "Ingrese un numero", "Reingrese un numero.");
+                segundoNumeroYaSeIngreso = 'S';
                 break;
             case 3:
                 resultado = sumarFloat(numero1, numero2);
@@ -46,10 +48,7 @@ int main()
                 mostrarResultado("multiplicacion", numero1, numero2, resultado, decimalesFloat);
                 break;
             case 7:
-                resultadoDouble = calcularFactorialInt(numero1);
-                system("cls");
-                printf("\nEl resultado de %.0f! es: %.0lf\n", numero1, resultadoDouble);
-                system("pause");
+                resultadoDouble = calcularYMostrarFactorialFloatSinDecimales(numero1);
                 break;
             case 8:
                 break;
