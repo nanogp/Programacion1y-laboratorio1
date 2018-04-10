@@ -35,15 +35,27 @@
 
 1523208073 c:\users\nano\desktop\github\programacion1y-laboratorio1\tp_1\funciones.h
 
-1523300499 source:d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\funciones.c
+1523380291 source:d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\funciones.c
 	<stdio.h>
 	<stdlib.h>
 	<conio.h>
 
-1523300693 source:d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\main.c
+1523379621 source:d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\main.c
 	<stdio.h>
 	<stdlib.h>
 	"funciones.h"
 
-1523295276 d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\funciones.h
+1523379631 d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\funciones.h
+
+1523387023 source:c:\github\programacion1y-laboratorio1\tp_1\funciones.c
+	<stdio.h>
+	<stdlib.h>
+	<conio.h>
+
+1523387071 source:c:\github\programacion1y-laboratorio1\tp_1\main.c
+	<stdio.h>
+	<stdlib.h>
+	"funciones.h"
+
+1523387039 c:\github\programacion1y-laboratorio1\tp_1\funciones.h
 

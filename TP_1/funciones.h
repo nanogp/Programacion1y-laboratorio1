@@ -1,62 +1,82 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-/** \brief muestra el menu de opciones para que el usuario elija una
+/** \brief muestra el menú de opciones para que el usuario elija una
  *
- * \param primerNumeroYaSeIngreso: indica si el usuario ya ingreso su primer numero
- * \param segundoNumeroYaSeIngreso: indica si el usuario ya ingreso su segundo numero
- * \return el numero de opcion de menu elegido
+ * \param primerNumeroYaSeIngreso: indica si el usuario ya ingresó su primer número
+ * \param segundoNumeroYaSeIngreso: indica si el usuario ya ingresó su segundo número
+ * \return el número de opcion de menú elegido
  *
  */
-int mostrarMenuDeOpciones(char, char, float, float);
+int mostrarMenuDeOpciones(char, char, float, float, int);
 
 
-/** \brief recibe un numero y chequea si tiene decimales
+/** \brief recibe un número y chequea si tiene decimales
  *
- * \param el numero a verificar
+ * \param el número a verificar
  * \return 1 si tiene decimales, 0 si no
  *
  */
 int chequearSiTieneDecimalesFloat(float);
 
 
-/** \brief muestra por printf el resultado de las operaciones de la calculadora
+/** \brief recibe el valor del divisor y verifica que no sea cero
  *
- * \param nombreOperacion: la operacion de la que se va a mostrar el resultado (ej: suma, resta)
- * \param numero1: el primer numero que formo parte de la operacion
- * \param numero2: el segundo numero que formo parte de la operacion
- * \param resultado: el resultado que dio la operacion entre los numeros 1 y 2
- * \param decimales: la cantidad de decimales a mostrar
+ * \param divisor: el número divisor
+ * \return devuelve 1 o 0 si es posible dividir o no y en caso de no ser posible, lo informa en pantalla.
  *
  */
-void mostrarResultado(char[], float, float, float, int);
+int validarDivisionEsPosible(float);
 
 
-/** \brief devuelve un numero validado
+/** \brief recibe un número y verifica que se pueda realizar el factorial
  *
- * \param numero: el numero a validar
- * \param minimo: limite inferior del rango
- * \param maximo: limite superior del rango
- * \param mensajeReingreso: mensaje para pedir reingreso si corresponde
- * \return el numero validado
+ * \param numero: el número a procesar
+ * \return devuelve 1 o 0 si es posible realizar o no el factorial y en caso de no ser posible, lo informa en pantalla.
+ *
+ */
+int validarFactorialEsPosible(float);
+
+
+/** \brief muestra por printf el resultado de las operaciónes de la calculadora
+ *
+ * \param nombreOperacion: la operación de la que se va a mostrar el resultado (ej: suma, resta)
+ * \param numero1: el primer número que formo parte de la operación
+ * \param numero2: el segundo número que formo parte de la operación
+ * \param resultado: el resultado que dio la operación entre los números 1 y 2
+ * \param cantidadDecimales: la cantidad de decimales a mostrar
+ * \param limpiarPantalla: recibe S o N si debe borrar la pantalla antes de mostrar el resultado
+ * \param hacerPausa: recibe S o N si debe hacer una pausa luego de mostrar el resultado
+ *
+ */
+void mostrarResultado(char[], float, float, float, int, char, char);
+
+
+/** \brief devuelve un número validado
+ *
+ * \param número: el número a validar
+ * \param minimo: límite inferior del rango
+ * \param maximo: límite superior del rango
+ * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
+ * \return el número validado
  *
  */
 float validarFloat(float, float, float, char[]);
 
 
-/** \brief pide y devuelve un numero validado
+/** \brief pide y devuelve un número validado
  *
- * \param minimo: limite inferior del rango
- * \param maximo: limite superior del rango
- * \param mensajeIngreso: mensaje para pedir ingreso del numero
- * \param mensajeReingreso: mensaje para pedir reingreso si corresponde
- * \return el numero validado
+ * \param minimo: límite inferior del rango
+ * \param maximo: límite superior del rango
+ * \param mensajeIngreso: mensaje para pedir ingresó del número
+ * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
+ * \return el número validado
  *
  */
 float pedirFloat(float, float, char[], char[]);
 
 
-/** \brief suma dos numeros y devuelve el resultado
+/** \brief suma dos números y devuelve el resultado
  *
  * \param numero1: el primer operando
  * \param numero2: el segundo operando
@@ -66,7 +86,7 @@ float pedirFloat(float, float, char[], char[]);
 float sumarFloat(float, float);
 
 
-/** \brief resta dos numeros y devuelve el resultado
+/** \brief resta dos números y devuelve el resultado
  *
  * \param numero1: el primer operando
  * \param numero2: el segundo operando
@@ -76,7 +96,7 @@ float sumarFloat(float, float);
 float restarFloat(float, float);
 
 
-/** \brief multiplica dos numeros y devuelve el resultado
+/** \brief multiplica dos números y devuelve el resultado
  *
  * \param numero1: el primer operando
  * \param numero2: el segundo operando
@@ -86,7 +106,7 @@ float restarFloat(float, float);
 float multiplicarFloat(float, float);
 
 
-/** \brief divide dos numeros y devuelve el resultado en flotante
+/** \brief divide dos números y devuelve el resultado en flotante
  *
  * \param numero1: el primer operando
  * \param numero2: el segundo operando
@@ -96,21 +116,13 @@ float multiplicarFloat(float, float);
 float dividirFloat(float, float);
 
 
-/** \brief calcula el factorial de un numero entero
+/** \brief calcula el factorial de un número entero
  *
- * \param numero: el numero al que se calcula su factorial
- * \return el factorial del numero ingresado
- *
- */
-double calcularFactorialInt(int);
-
-
-/** \brief calcula el factorial de un numero flotante solo si no tiene decimales
- *
- * \param numero: el numero al que se calcula su factorial
- * \return el factorial del numero ingresado
+ * \param numero: el número al que se calcula su factorial
+ * \return el factorial del número ingresado
  *
  */
-double calcularFactorialFloatSinDecimales(float);
+float calcularFactorialInt(int);
+
 
 #endif // FUNCIONES_H_INCLUDED
