@@ -1,55 +1,37 @@
 #ifndef FUNCIONES_H_INCLUDED
 #define FUNCIONES_H_INCLUDED
 
-/** \brief muestra el menú de opciones para que el usuario elija una
+
+/** \brief ejecuta instrucciones de la consola
  *
- * \param primerNumeroYaSeIngreso: indica si el usuario ya ingresó su primer número
- * \param segundoNumeroYaSeIngreso: indica si el usuario ya ingresó su segundo número
- * \return el número de opcion de menú elegido
+ * \param instruccion: la instrucción a ejecutar en consola
  *
  */
-int mostrarMenuDeOpciones(char, char, float, float, int);
+void ejecutarEnConsola(char[]);
 
 
-/** \brief recibe un número y chequea si tiene decimales
+/** \brief devuelve un número entero validado
  *
- * \param el número a verificar
- * \return 1 si tiene decimales, 0 si no
- *
- */
-int chequearSiTieneDecimalesFloat(float);
-
-
-/** \brief recibe el valor del divisor y verifica que no sea cero
- *
- * \param divisor: el número divisor
- * \return devuelve 1 o 0 si es posible dividir o no y en caso de no ser posible, lo informa en pantalla.
+ * \param número: el número a validar
+ * \param minimo: límite inferior del rango
+ * \param maximo: límite superior del rango
+ * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
+ * \return el número validado
  *
  */
-int validarDivisionEsPosible(float);
+int validarInt(int, int, int, char[]);
 
 
-/** \brief recibe un número y verifica que se pueda realizar el factorial
+/** \brief pide y devuelve un número entero validado
  *
- * \param numero: el número a procesar
- * \return devuelve 1 o 0 si es posible realizar o no el factorial y en caso de no ser posible, lo informa en pantalla.
- *
- */
-int validarFactorialEsPosible(float);
-
-
-/** \brief muestra por printf el resultado de las operaciónes de la calculadora
- *
- * \param nombreOperacion: la operación de la que se va a mostrar el resultado (ej: suma, resta)
- * \param numero1: el primer número que formo parte de la operación
- * \param numero2: el segundo número que formo parte de la operación
- * \param resultado: el resultado que dio la operación entre los números 1 y 2
- * \param cantidadDecimales: la cantidad de decimales a mostrar
- * \param limpiarPantalla: recibe S o N si debe borrar la pantalla antes de mostrar el resultado
- * \param hacerPausa: recibe S o N si debe hacer una pausa luego de mostrar el resultado
+ * \param minimo: límite inferior del rango
+ * \param maximo: límite superior del rango
+ * \param mensajeIngreso: mensaje para pedir ingresó del número
+ * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
+ * \return el número validado
  *
  */
-void mostrarResultado(char[], float, float, float, int, char, char);
+int pedirInt(int, int, char[], char[]);
 
 
 /** \brief devuelve un número validado
@@ -76,53 +58,38 @@ float validarFloat(float, float, float, char[]);
 float pedirFloat(float, float, char[], char[]);
 
 
-/** \brief suma dos números y devuelve el resultado
+/** \brief pide al usuario un número de opción de menú y valida con una lista
  *
- * \param numero1: el primer operando
- * \param numero2: el segundo operando
- * \return la suma de los operandos
- *
- */
-float sumarFloat(float, float);
-
-
-/** \brief resta dos números y devuelve el resultado
- *
- * \param numero1: el primer operando
- * \param numero2: el segundo operando
- * \return la resta de los operandos
+ * \param lista: vector con la lista de números validos
+ * \param tam: tamaño del vector (cantidad de opciones disponibles)
+ * \return el número de opción elegido por el usuario
  *
  */
-float restarFloat(float, float);
+int pedirOpcionDeMenu(int[],int);
 
 
-/** \brief multiplica dos números y devuelve el resultado
+/** \brief muestra por printf el resultado de las operaciónes de la calculadora
  *
- * \param numero1: el primer operando
- * \param numero2: el segundo operando
- * \return el producto de los operandos
- *
- */
-float multiplicarFloat(float, float);
-
-
-/** \brief divide dos números y devuelve el resultado en flotante
- *
- * \param numero1: el primer operando
- * \param numero2: el segundo operando
- * \return la division de los operandos
+ * \param operacion: el signo de la operación que se va a mostrar el resultado (ej: +, -, etc)
+ * \param numero1: el primer número que formo parte de la operación
+ * \param numero2: el segundo número que formo parte de la operación
+ * \param resultado: el resultado que dio la operación entre los números 1 y 2
+ * \param cantidadDecimales: la cantidad de decimales a mostrar
+ * \param limpiarPantalla: recibe S o N si debe borrar la pantalla antes de mostrar el resultado
+ * \param hacerPausa: recibe S o N si debe hacer una pausa luego de mostrar el resultado
  *
  */
-float dividirFloat(float, float);
+void mostrarResultado(char[], float, float, float, int, char, char);
 
 
-/** \brief calcula el factorial de un número entero
+/** \brief muestra el menú de opciones para que el usuario elija una
  *
- * \param numero: el número al que se calcula su factorial
- * \return el factorial del número ingresado
+ * \param primerNumeroYaSeIngreso: indica si el usuario ya ingresó su primer número
+ * \param segundoNumeroYaSeIngreso: indica si el usuario ya ingresó su segundo número
+ * \return el número de opcion de menú elegido
  *
  */
-float calcularFactorialInt(int);
+int mostrarMenuDeOpciones(char, char, float, float, int);
 
 
 #endif // FUNCIONES_H_INCLUDED

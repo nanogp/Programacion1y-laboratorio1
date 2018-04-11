@@ -47,15 +47,21 @@
 
 1523379631 d:\mecon\utn - tecnicatura\github\programacion1y-laboratorio1\tp_1\funciones.h
 
-1523387023 source:c:\github\programacion1y-laboratorio1\tp_1\funciones.c
+1523488830 source:c:\github\programacion1y-laboratorio1\tp_1\funciones.c
 	<stdio.h>
 	<stdlib.h>
-	<conio.h>
+	"matematica.h"
 
-1523387071 source:c:\github\programacion1y-laboratorio1\tp_1\main.c
+1523488674 source:c:\github\programacion1y-laboratorio1\tp_1\main.c
 	<stdio.h>
 	<stdlib.h>
+	"matematica.h"
 	"funciones.h"
 
-1523387039 c:\github\programacion1y-laboratorio1\tp_1\funciones.h
+1523488743 c:\github\programacion1y-laboratorio1\tp_1\funciones.h
+
+1523478859 c:\github\programacion1y-laboratorio1\tp_1\matematica.h
+
+1523478635 source:c:\github\programacion1y-laboratorio1\tp_1\matematica.c
+	<stdio.h>
 

@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "matematica.h"
 #include "funciones.h"
+#define DECIMALES_FLOAT 4
 
 int main()
 {
-    char seguir='S';
-    char primerNumeroYaSeIngreso = 'N';
-    char segundoNumeroYaSeIngreso = 'N';
-    char limpiarPantalla = 'S';
-    char noLimpiarPantalla = 'N';
-    char hacerPausa = 'S';
-    char noHacerPausa = 'N';
-    int opcion = 0;
-    int decimalesFloat = 4;
+    const char limpiarPantalla      = 'S';
+    const char noLimpiarPantalla    = 'N';
+    const char hacerPausa           = 'S';
+    const char noHacerPausa         = 'N';
+    char primerNumeroYaSeIngreso    = 'N';
+    char segundoNumeroYaSeIngreso   = 'N';
+    char seguir                     = 'S';
+    float limiteInferiorRango       = -127;
+    float limiteSuperiorRango       = 128;
     float numero1;
     float numero2;
     float resultado;
-    float limiteInferiorRango = -127;
-    float limiteSuperiorRango = 128;
+    int opcion;
 
     while(seguir=='S')
     {
 
-        opcion = mostrarMenuDeOpciones(primerNumeroYaSeIngreso, segundoNumeroYaSeIngreso, numero1, numero2, decimalesFloat);
+        opcion = mostrarMenuDeOpciones(primerNumeroYaSeIngreso, segundoNumeroYaSeIngreso, numero1, numero2, DECIMALES_FLOAT);
 
         switch(opcion)
         {
@@ -36,55 +37,62 @@ int main()
                 break;
             case 3:
                 resultado = sumarFloat(numero1, numero2);
-                mostrarResultado("suma", numero1, numero2, resultado, decimalesFloat, limpiarPantalla, hacerPausa);
+                mostrarResultado("+", numero1, numero2, resultado, DECIMALES_FLOAT, limpiarPantalla, hacerPausa);
                 break;
             case 4:
                 resultado = restarFloat(numero1, numero2);
-                mostrarResultado("resta", numero1, numero2, resultado, decimalesFloat, limpiarPantalla, hacerPausa);
+                mostrarResultado("-", numero1, numero2, resultado, DECIMALES_FLOAT, limpiarPantalla, hacerPausa);
                 break;
             case 5:
-                if(validarDivisionEsPosible(numero2) != 0)
+                if(validarDivisionEsPosible(numero2) == 1)
                 {
                     resultado = dividirFloat(numero1, numero2);
-                    mostrarResultado("divisi¢n", numero1, numero2, resultado, decimalesFloat, noLimpiarPantalla, noHacerPausa);
+                    mostrarResultado("/", numero1, numero2, resultado, DECIMALES_FLOAT, limpiarPantalla, hacerPausa);
+                }
+                else
+                {
+                    ejecutarEnConsola("cls");
+                    ejecutarEnConsola("pause");
                 }
                 break;
             case 6:
                 resultado = multiplicarFloat(numero1, numero2);
-                mostrarResultado("multiplicaci¢n", numero1, numero2, resultado, decimalesFloat, limpiarPantalla, hacerPausa);
+                mostrarResultado("*", numero1, numero2, resultado, DECIMALES_FLOAT, limpiarPantalla, hacerPausa);
                 break;
             case 7:
-                if(validarFactorialEsPosible(numero1) != 0)
+                if(validarFactorialEsPosible(numero1) == 1)
                 {
                     resultado = calcularFactorialInt(numero1);
-                    mostrarResultado("factorial", numero1, 0, resultado, decimalesFloat, limpiarPantalla, hacerPausa);
+                    mostrarResultado("!", numero1, 0, resultado, DECIMALES_FLOAT, limpiarPantalla, hacerPausa);
+                }
+                else
+                {
+                    ejecutarEnConsola("cls");
+                    ejecutarEnConsola("pause");
                 }
                 break;
             case 8:
                 resultado = sumarFloat(numero1, numero2);
-                mostrarResultado("suma", numero1, numero2, resultado, decimalesFloat, limpiarPantalla, noHacerPausa);
+                mostrarResultado("+", numero1, numero2, resultado, DECIMALES_FLOAT, limpiarPantalla, noHacerPausa);
 
                 resultado = restarFloat(numero1, numero2);
-                mostrarResultado("resta", numero1, numero2, resultado, decimalesFloat, noLimpiarPantalla, noHacerPausa);
+                mostrarResultado("-", numero1, numero2, resultado, DECIMALES_FLOAT, noLimpiarPantalla, noHacerPausa);
 
-                if(validarDivisionEsPosible(numero2) != 0)
+                if(validarDivisionEsPosible(numero2) == 1)
                 {
                     resultado = dividirFloat(numero1, numero2);
-                    mostrarResultado("divisi¢n", numero1, numero2, resultado, decimalesFloat, noLimpiarPantalla, noHacerPausa);
+                    mostrarResultado("/", numero1, numero2, resultado, DECIMALES_FLOAT, noLimpiarPantalla, noHacerPausa);
                 }
 
                 resultado = multiplicarFloat(numero1, numero2);
-                mostrarResultado("multiplicaci¢n", numero1, numero2, resultado, decimalesFloat, noLimpiarPantalla, noHacerPausa);
+                mostrarResultado("*", numero1, numero2, resultado, DECIMALES_FLOAT, noLimpiarPantalla, noHacerPausa);
 
-                if(validarFactorialEsPosible(numero1) != 0)
+                if(validarFactorialEsPosible(numero1) == 1)
                 {
                     resultado = calcularFactorialInt(numero1);
-                    mostrarResultado("factorial", numero1, 0, resultado, decimalesFloat, noLimpiarPantalla, hacerPausa);
+                    mostrarResultado("!", numero1, 0, resultado, DECIMALES_FLOAT, noLimpiarPantalla, noHacerPausa);
                 }
-                else
-                {
-                    system("pause");
-                }
+                ejecutarEnConsola("pause");
                 break;
             case 9:
                 seguir = 'N';
