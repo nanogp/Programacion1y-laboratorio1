@@ -51,7 +51,6 @@ int main()
                 }
                 else
                 {
-                    ejecutarEnConsola("cls");
                     ejecutarEnConsola("pause");
                 }
                 break;
@@ -67,7 +66,6 @@ int main()
                 }
                 else
                 {
-                    ejecutarEnConsola("cls");
                     ejecutarEnConsola("pause");
                 }
                 break;
