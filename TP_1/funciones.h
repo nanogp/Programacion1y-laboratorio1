@@ -10,52 +10,14 @@
 void ejecutarEnConsola(char[]);
 
 
-/** \brief devuelve un número entero validado
+/** \brief pide al usuario que ingrese un número
  *
- * \param número: el número a validar
- * \param minimo: límite inferior del rango
- * \param maximo: límite superior del rango
- * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
- * \return el número validado
- *
- */
-int validarInt(int, int, int, char[]);
-
-
-/** \brief pide y devuelve un número entero validado
- *
- * \param minimo: límite inferior del rango
- * \param maximo: límite superior del rango
  * \param mensajeIngreso: mensaje para pedir ingresó del número
  * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
  * \return el número validado
  *
  */
-int pedirInt(int, int, char[], char[]);
-
-
-/** \brief devuelve un número validado
- *
- * \param número: el número a validar
- * \param minimo: límite inferior del rango
- * \param maximo: límite superior del rango
- * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
- * \return el número validado
- *
- */
-float validarFloat(float, float, float, char[]);
-
-
-/** \brief pide y devuelve un número validado
- *
- * \param minimo: límite inferior del rango
- * \param maximo: límite superior del rango
- * \param mensajeIngreso: mensaje para pedir ingresó del número
- * \param mensajeReingresó: mensaje para pedir reingresó si corresponde
- * \return el número validado
- *
- */
-float pedirFloat(float, float, char[], char[]);
+float pedirFloat(const char[], const char[]);
 
 
 /** \brief pide al usuario un número de opción de menú y valida con una lista
@@ -79,7 +41,7 @@ int pedirOpcionDeMenu(int[],int);
  * \param hacerPausa: recibe S o N si debe hacer una pausa luego de mostrar el resultado
  *
  */
-void mostrarResultado(char[], float, float, float, int, char, char);
+void mostrarResultado(char, float, float, float, const int, const char, const char);
 
 
 /** \brief muestra el menú de opciones para que el usuario elija una
