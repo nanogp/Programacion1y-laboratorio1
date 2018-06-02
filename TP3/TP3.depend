@@ -1,0 +1,43 @@
+# depslib dependency file v1.0
+1527906387 source:d:\github\tp3\tp3\archivo.c
+	"Archivo.h"
+	"Pelicula.h"
+	<stdio.h>
+	<string.h>
+	<stdlib.h>
+
+1527906387 d:\github\tp3\tp3\archivo.h
+	"Pelicula.h"
+
+1527906387 d:\github\tp3\tp3\pelicula.h
+	"General.h"
+	"Menu.h"
+
+1527906387 d:\github\tp3\tp3\general.h
+
+1527906387 d:\github\tp3\tp3\menu.h
+
+1527906387 source:d:\github\tp3\tp3\general.c
+	"General.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1527906584 source:d:\github\tp3\tp3\main.c
+	"General.h"
+	"Menu.h"
+	"Pelicula.h"
+	"Archivo.h"
+	<stdio.h>
+	<stdlib.h>
+
+1527780918 source:d:\github\tp3\tp3\menu.c
+	"Menu.h"
+	"General.h"
+	<stdio.h>
+
+1527906387 source:d:\github\tp3\tp3\pelicula.c
+	"Pelicula.h"
+	<stdio.h>
+	<string.h>
+
